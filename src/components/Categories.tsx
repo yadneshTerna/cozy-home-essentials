@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import categoryBedsheets from "@/assets/category-bedsheets.jpg";
 import categoryPillows from "@/assets/category-pillows.jpg";
 import categorySofa from "@/assets/category-sofa.jpg";
@@ -7,19 +8,19 @@ const categories = [
     title: "Bedsheets",
     description: "Soft, breathable cotton sheets for restful nights",
     image: categoryBedsheets,
-    href: "#",
+    href: "/products/bedsheets",
   },
   {
     title: "Pillow Covers",
     description: "Elegant designs for every bedroom style",
     image: categoryPillows,
-    href: "#",
+    href: "/products/pillow-covers",
   },
   {
     title: "Sofa Covers",
     description: "Protect and refresh your living space",
     image: categorySofa,
-    href: "#",
+    href: "/products/sofa-covers",
   },
 ];
 
@@ -38,9 +39,9 @@ const Categories = () => {
 
         <div className="grid md:grid-cols-3 gap-6">
           {categories.map((category, index) => (
-            <a
+            <Link
               key={category.title}
-              href={category.href}
+              to={category.href}
               className="group relative overflow-hidden rounded-2xl bg-card shadow-soft hover:shadow-hover transition-all duration-500"
               style={{ animationDelay: `${index * 100}ms` }}
             >
@@ -60,7 +61,7 @@ const Categories = () => {
                   {category.description}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
