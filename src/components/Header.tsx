@@ -1,31 +1,32 @@
 import { ShoppingBag, Menu, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <span className="font-display text-2xl font-semibold text-foreground">
             Nestora
           </span>
-        </a>
+        </Link>
 
         {/* Navigation - Desktop */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/products/bedsheets" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             Bedsheets
-          </a>
-          <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/products/pillow-covers" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             Pillow Covers
-          </a>
-          <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/products/sofa-covers" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             Sofa Covers
-          </a>
-          <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            About
-          </a>
+          </Link>
+          <Link to="/products" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            All Products
+          </Link>
         </nav>
 
         {/* Actions */}

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 import product1 from "@/assets/product-1.jpg";
 import product2 from "@/assets/product-2.jpg";
 import product3 from "@/assets/product-3.jpg";
@@ -51,9 +52,9 @@ const FeaturedProducts = () => {
               Our most loved pieces, handpicked for quality and comfort
             </p>
           </div>
-          <a href="#" className="mt-4 md:mt-0 text-sage font-medium hover:underline underline-offset-4">
+          <Link to="/products" className="mt-4 md:mt-0 text-sage font-medium hover:underline underline-offset-4">
             View All Products →
-          </a>
+          </Link>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
