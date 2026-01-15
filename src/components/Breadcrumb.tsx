@@ -15,7 +15,7 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
     <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm">
       <Link
         to="/"
-        className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
+        className="flex items-center gap-1 text-stone-500 hover:text-stone-800 transition-colors"
       >
         <Home className="w-4 h-4" />
         <span className="sr-only sm:not-sr-only">Home</span>
@@ -23,16 +23,16 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
       
       {items.map((item, index) => (
         <span key={item.label} className="flex items-center gap-2">
-          <ChevronRight className="w-4 h-4 text-muted-foreground/50" />
+          <ChevronRight className="w-4 h-4 text-stone-500/50" />
           {item.href ? (
             <Link
               to={item.href}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-stone-500 hover:text-stone-800 transition-colors"
             >
               {item.label}
             </Link>
           ) : (
-            <span className="text-foreground font-medium">{item.label}</span>
+            <span className="text-stone-800 font-medium">{item.label}</span>
           )}
         </span>
       ))}

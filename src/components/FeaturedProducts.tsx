@@ -41,18 +41,18 @@ const products = [
 
 const FeaturedProducts = () => {
   return (
-    <section className="py-20 bg-secondary/30">
+    <section className="py-20 bg-stone-100/50">
       <div className="container">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif font-semibold text-stone-800 mb-4">
               Featured Products
             </h2>
-            <p className="text-muted-foreground max-w-md">
+            <p className="text-stone-500 max-w-md">
               Our most loved pieces, handpicked for quality and comfort
             </p>
           </div>
-          <Link to="/products" className="mt-4 md:mt-0 text-sage font-medium hover:underline underline-offset-4">
+          <Link to="/products" className="mt-4 md:mt-0 text-emerald-700 font-medium hover:underline underline-offset-4">
             View All Products →
           </Link>
         </div>
@@ -61,9 +61,9 @@ const FeaturedProducts = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="group bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-hover transition-all duration-300"
+              className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
             >
-              <div className="aspect-square overflow-hidden bg-muted">
+              <div className="aspect-square overflow-hidden bg-stone-100">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -71,18 +71,18 @@ const FeaturedProducts = () => {
                 />
               </div>
               <div className="p-5">
-                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                <span className="text-xs font-medium text-stone-500 uppercase tracking-wide">
                   {product.category}
                 </span>
-                <h3 className="text-base font-medium text-foreground mt-1 mb-3 line-clamp-2">
+                <h3 className="text-base font-medium text-stone-800 mt-1 mb-3 line-clamp-2">
                   {product.name}
                 </h3>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-lg font-semibold text-foreground">
+                  <span className="text-lg font-semibold text-stone-800">
                     ${product.price}
                   </span>
                   {product.originalPrice && (
-                    <span className="text-sm text-muted-foreground line-through">
+                    <span className="text-sm text-stone-500 line-through">
                       ${product.originalPrice}
                     </span>
                   )}

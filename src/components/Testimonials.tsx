@@ -23,18 +23,18 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-warm-beige">
+    <section className="py-20 bg-amber-50">
       <div className="container">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold text-stone-800 mb-4">
             What Our Customers Say
           </h2>
           <div className="flex items-center justify-center gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-sage text-sage" />
+              <Star key={i} className="w-5 h-5 fill-emerald-700 text-emerald-700" />
             ))}
           </div>
-          <p className="text-muted-foreground">
+          <p className="text-stone-500">
             Trusted by over 10,000 happy customers
           </p>
         </div>
@@ -43,19 +43,19 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="bg-card p-8 rounded-2xl shadow-soft"
+              className="bg-white p-8 rounded-2xl shadow-md"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-sage text-sage" />
+                  <Star key={i} className="w-4 h-4 fill-emerald-700 text-emerald-700" />
                 ))}
               </div>
-              <p className="text-foreground mb-6 leading-relaxed">
+              <p className="text-stone-800 mb-6 leading-relaxed">
                 "{testimonial.text}"
               </p>
               <div>
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                <p className="font-semibold text-stone-800">{testimonial.name}</p>
+                <p className="text-sm text-stone-500">{testimonial.location}</p>
               </div>
             </div>
           ))}

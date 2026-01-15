@@ -26,13 +26,13 @@ const categories = [
 
 const Categories = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-stone-50">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold text-stone-800 mb-4">
             Shop by Category
           </h2>
-          <p className="text-muted-foreground max-w-md mx-auto">
+          <p className="text-stone-500 max-w-md mx-auto">
             Find the perfect pieces to transform your home into a cozy sanctuary
           </p>
         </div>
@@ -42,7 +42,7 @@ const Categories = () => {
             <Link
               key={category.title}
               to={category.href}
-              className="group relative overflow-hidden rounded-2xl bg-card shadow-soft hover:shadow-hover transition-all duration-500"
+              className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-500"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="aspect-square overflow-hidden">
@@ -52,12 +52,12 @@ const Categories = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-cream">
-                <h3 className="text-2xl font-display font-semibold mb-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-800/70 via-stone-800/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-stone-50">
+                <h3 className="text-2xl font-serif font-semibold mb-2">
                   {category.title}
                 </h3>
-                <p className="text-cream/80 text-sm">
+                <p className="text-stone-50/80 text-sm">
                   {category.description}
                 </p>
               </div>

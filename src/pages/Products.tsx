@@ -135,7 +135,7 @@ const Products = () => {
     : [{ label: "Products" }];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-stone-50">
       <Header />
 
       <main className="py-8">
@@ -145,14 +145,14 @@ const Products = () => {
 
           {/* Page Header */}
           <div className="mt-6 mb-8">
-            <h1 className="text-3xl md:text-4xl font-display font-semibold text-foreground mb-2">
+            <h1 className="text-3xl md:text-4xl font-serif font-semibold text-stone-800 mb-2">
               {pageTitle}
             </h1>
-            <p className="text-muted-foreground">{pageDescription}</p>
+            <p className="text-stone-500">{pageDescription}</p>
           </div>
 
           {/* Toolbar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-6 border-b border-border">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-6 border-b border-stone-200">
             <div className="flex items-center gap-4">
               {/* Mobile Filters */}
               <ProductFilters
@@ -161,14 +161,14 @@ const Products = () => {
                 onReset={handleResetFilters}
                 activeFiltersCount={activeFiltersCount}
               />
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-stone-500">
                 {filteredProducts.length} product
                 {filteredProducts.length !== 1 ? "s" : ""}
               </p>
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-sm text-muted-foreground hidden sm:block">
+              <span className="text-sm text-stone-500 hidden sm:block">
                 Sort by:
               </span>
               <Select value={sortBy} onValueChange={handleSortChange}>
@@ -189,7 +189,7 @@ const Products = () => {
           <div className="flex gap-8">
             {/* Desktop Filters Sidebar */}
             <aside className="hidden lg:block w-64 shrink-0">
-              <div className="sticky top-24 bg-card rounded-2xl p-6 shadow-soft">
+              <div className="sticky top-24 bg-white rounded-2xl p-6 shadow-md">
                 <FilterContent
                   filters={filters}
                   onFiltersChange={handleFiltersChange}
