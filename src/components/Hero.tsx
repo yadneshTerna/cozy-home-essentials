@@ -11,19 +11,19 @@ const Hero = () => {
           alt="Luxurious bedroom with premium bedding"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-50/80 via-stone-50/40 to-transparent" />
       </div>
 
       {/* Content */}
       <div className="container relative z-10">
-        <div className="max-w-xl animate-fade-up">
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-sage-light text-sage rounded-full">
+        <div className="max-w-xl animate-[fadeUp_0.6s_ease-out_forwards]">
+          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-emerald-100 text-emerald-700 rounded-full">
             New Collection 2024
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold text-foreground leading-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-stone-800 leading-tight mb-6">
             Comfort That Feels Like Home
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-md">
+          <p className="text-lg md:text-xl text-stone-500 mb-8 max-w-md">
             Premium fabrics crafted for lasting comfort. Experience the luxury of everyday living with our curated home essentials.
           </p>
           <div className="flex flex-wrap gap-4">

@@ -62,7 +62,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
           typeof page === "string" ? (
             <span
               key={`ellipsis-${index}`}
-              className="px-3 py-2 text-muted-foreground"
+              className="px-3 py-2 text-stone-500"
             >
               {page}
             </span>
@@ -74,7 +74,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
               onClick={() => onPageChange(page)}
               className={`h-10 w-10 ${
                 currentPage === page
-                  ? "bg-sage text-cream hover:bg-sage/90"
+                  ? "bg-emerald-700 text-stone-50 hover:bg-emerald-700/90"
                   : ""
               }`}
             >

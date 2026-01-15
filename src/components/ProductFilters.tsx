@@ -33,16 +33,16 @@ const FilterSection = ({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-b border-border pb-4">
+    <div className="border-b border-stone-200 pb-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full py-2 text-left"
       >
-        <span className="font-medium text-foreground">{title}</span>
+        <span className="font-medium text-stone-800">{title}</span>
         {isOpen ? (
-          <ChevronUp className="w-4 h-4 text-muted-foreground" />
+          <ChevronUp className="w-4 h-4 text-stone-500" />
         ) : (
-          <ChevronDown className="w-4 h-4 text-muted-foreground" />
+          <ChevronDown className="w-4 h-4 text-stone-500" />
         )}
       </button>
       {isOpen && <div className="pt-2">{children}</div>}
@@ -75,9 +75,9 @@ export const FilterContent = ({ filters, onFiltersChange, onReset, activeFilters
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between pb-2">
-        <h3 className="text-lg font-semibold text-foreground">Filters</h3>
+        <h3 className="text-lg font-semibold text-stone-800">Filters</h3>
         {activeFiltersCount > 0 && (
-          <Button variant="ghost" size="sm" onClick={onReset} className="text-sage hover:text-sage/80">
+          <Button variant="ghost" size="sm" onClick={onReset} className="text-emerald-700 hover:text-emerald-700/80">
             Clear all
           </Button>
         )}
@@ -95,7 +95,7 @@ export const FilterContent = ({ filters, onFiltersChange, onReset, activeFilters
             step={10}
             className="mb-3"
           />
-          <div className="flex justify-between text-sm text-muted-foreground">
+          <div className="flex justify-between text-sm text-stone-500">
             <span>${filters.priceRange[0]}</span>
             <span>${filters.priceRange[1]}</span>
           </div>
@@ -115,7 +115,7 @@ export const FilterContent = ({ filters, onFiltersChange, onReset, activeFilters
                   handleMaterialChange(material, checked as boolean)
                 }
               />
-              <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+              <span className="text-sm text-stone-500 group-hover:text-stone-800 transition-colors">
                 {material}
               </span>
             </label>
@@ -136,7 +136,7 @@ export const FilterContent = ({ filters, onFiltersChange, onReset, activeFilters
                   handleSizeChange(size, checked as boolean)
                 }
               />
-              <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+              <span className="text-sm text-stone-500 group-hover:text-stone-800 transition-colors">
                 {size}
               </span>
             </label>
@@ -157,7 +157,7 @@ export const FilterContent = ({ filters, onFiltersChange, onReset, activeFilters
                   handleColorChange(color, checked as boolean)
                 }
               />
-              <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+              <span className="text-sm text-stone-500 group-hover:text-stone-800 transition-colors">
                 {color}
               </span>
             </label>
@@ -173,7 +173,7 @@ export const FilterContent = ({ filters, onFiltersChange, onReset, activeFilters
               onFiltersChange({ ...filters, inStock: checked as boolean })
             }
           />
-          <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+          <span className="text-sm text-stone-500 group-hover:text-stone-800 transition-colors">
             In Stock Only
           </span>
         </label>
@@ -191,7 +191,7 @@ const ProductFilters = (props: ProductFiltersProps) => {
             <SlidersHorizontal className="w-4 h-4" />
             Filters
             {props.activeFiltersCount > 0 && (
-              <span className="ml-1 h-5 w-5 rounded-full bg-sage text-cream text-xs flex items-center justify-center">
+              <span className="ml-1 h-5 w-5 rounded-full bg-emerald-700 text-stone-50 text-xs flex items-center justify-center">
                 {props.activeFiltersCount}
               </span>
             )}
