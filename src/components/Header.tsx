@@ -1,8 +1,11 @@
 import { ShoppingBag, Menu, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useCart } from "@/context/CartContext";
 
 const Header = () => {
+  const { totalItems } = useCart();
+
   return (
     <header className="sticky top-0 z-50 w-full bg-stone-50/95 backdrop-blur supports-[backdrop-filter]:bg-stone-50/80 border-b border-stone-200">
       <div className="container flex h-16 items-center justify-between">
@@ -37,12 +40,16 @@ const Header = () => {
           <Button variant="ghost" size="icon" className="hidden sm:flex">
             <User className="h-5 w-5" />
           </Button>
-          <Button variant="ghost" size="icon" className="relative">
-            <ShoppingBag className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-emerald-700 text-[10px] font-medium text-stone-50 flex items-center justify-center">
-              2
-            </span>
-          </Button>
+          <Link to="/cart">
+            <Button variant="ghost" size="icon" className="relative">
+              <ShoppingBag className="h-5 w-5" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-emerald-700 text-[10px] font-medium text-stone-50 flex items-center justify-center">
+                  {totalItems > 9 ? '9+' : totalItems}
+                </span>
+              )}
+            </Button>
+          </Link>
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-5 w-5" />
           </Button>

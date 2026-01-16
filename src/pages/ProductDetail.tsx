@@ -6,13 +6,17 @@ import { products } from "@/data/products";
 import Breadcrumb from "@/components/Breadcrumb";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useCart } from "@/context/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
+  const { addToCart } = useCart();
+  const { toast } = useToast();
   
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState<string>("");
+  const [selectedSize, setSelectedSize] = useState<string>("Double");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   if (!product) {
@@ -52,6 +56,14 @@ const ProductDetail = () => {
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity, selectedSize);
+    toast({
+      title: "Added to cart",
+      description: `${quantity} x ${product.name} (${selectedSize}) added to your cart.`,
+    });
   };
 
   return (
@@ -218,6 +230,7 @@ const ProductDetail = () => {
                 size="lg"
                 className="flex-1 h-12"
                 disabled={!product.inStock}
+                onClick={handleAddToCart}
               >
                 <ShoppingCart className="w-5 h-5" />
                 {product.inStock ? "Add to Cart" : "Out of Stock"}
