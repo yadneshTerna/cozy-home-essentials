@@ -9,7 +9,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+    <Link to={`/product/${product.id}`} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 block">
       {/* Image Container */}
       <div className="relative aspect-square overflow-hidden bg-stone-100">
         <img
@@ -100,7 +100,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {product.inStock ? "Add to Cart" : "Out of Stock"}
         </Button>
       </div>
-    </div>
+    </Link>
   );
 };
 
