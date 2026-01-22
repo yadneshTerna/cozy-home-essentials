@@ -19,7 +19,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Plus, Pencil, Trash2, Search } from 'lucide-react';
+import { Plus, Pencil, Trash2, Search, X, ImagePlus } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import {
   Select,
@@ -94,6 +94,60 @@ export const AdminProducts = () => {
                       className="mt-1"
                     />
                   </div>
+                  
+                  {/* Product Images Section */}
+                  <div className="col-span-2">
+                    <Label>Product Images</Label>
+                    <p className="text-sm text-[#6B7B6E] mb-2">Add multiple images for this product (URLs)</p>
+                    <div className="space-y-3">
+                      {/* Existing Images Preview */}
+                      {editingProduct?.images && editingProduct.images.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                          {editingProduct.images.map((img, index) => (
+                            <div key={index} className="relative group">
+                              <img
+                                src={img}
+                                alt={`Product image ${index + 1}`}
+                                className="h-16 w-16 rounded-lg object-cover border border-[#E8E4DC]"
+                              />
+                              <button
+                                type="button"
+                                className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                              >
+                                <X className="h-3 w-3" />
+                              </button>
+                              {index === 0 && (
+                                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[10px] bg-[#2C3E2D] text-white px-1.5 rounded">
+                                  Main
+                                </span>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      
+                      {/* Add Image Input */}
+                      <div className="flex gap-2">
+                        <Input
+                          id="newImageUrl"
+                          placeholder="Enter image URL"
+                          className="flex-1"
+                        />
+                        <Button
+                          type="button"
+                          variant="outline"
+                          className="border-[#2C3E2D] text-[#2C3E2D] hover:bg-[#2C3E2D] hover:text-white"
+                        >
+                          <ImagePlus className="h-4 w-4 mr-2" />
+                          Add
+                        </Button>
+                      </div>
+                      <p className="text-xs text-[#6B7B6E]">
+                        First image will be used as the main product image. Drag to reorder.
+                      </p>
+                    </div>
+                  </div>
+                  
                   <div>
                     <Label htmlFor="price">Price ($)</Label>
                     <Input
@@ -213,11 +267,18 @@ export const AdminProducts = () => {
               {filteredProducts.map((product) => (
                 <TableRow key={product.id} className="hover:bg-[#FAF9F6]">
                   <TableCell>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-12 w-12 rounded-lg object-cover"
-                    />
+                    <div className="flex items-center gap-1">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="h-12 w-12 rounded-lg object-cover"
+                      />
+                      {product.images && product.images.length > 1 && (
+                        <span className="text-xs text-[#6B7B6E] bg-[#FAF9F6] px-1.5 py-0.5 rounded">
+                          +{product.images.length - 1}
+                        </span>
+                      )}
+                    </div>
                   </TableCell>
                   <TableCell className="font-medium text-[#2C3E2D]">
                     {product.name}
