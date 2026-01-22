@@ -13,6 +13,7 @@ export interface Product {
   price: number;
   originalPrice?: number;
   image: string;
+  images: string[]; // Array of image URLs
   category: "bedsheets" | "pillow-covers" | "sofa-covers";
   material: "Cotton" | "Linen" | "Satin";
   size: "Single" | "Double" | "Queen" | "King";
@@ -29,6 +30,7 @@ export const products: Product[] = [
     price: 89,
     originalPrice: 120,
     image: product1,
+    images: [product1, product2, product3],
     category: "bedsheets",
     material: "Cotton",
     size: "Queen",
@@ -41,6 +43,7 @@ export const products: Product[] = [
     name: "Linen Pillow Cover Duo",
     price: 45,
     image: product2,
+    images: [product2, product1],
     category: "pillow-covers",
     material: "Linen",
     size: "Single",
@@ -53,6 +56,7 @@ export const products: Product[] = [
     price: 149,
     originalPrice: 189,
     image: product3,
+    images: [product3, product4, product5],
     category: "sofa-covers",
     material: "Cotton",
     size: "Double",
@@ -64,6 +68,7 @@ export const products: Product[] = [
     name: "Luxury Duvet Cover Set",
     price: 129,
     image: product4,
+    images: [product4, product5],
     category: "bedsheets",
     material: "Cotton",
     size: "King",
@@ -76,6 +81,7 @@ export const products: Product[] = [
     name: "Soft Gray Cotton Sheets",
     price: 95,
     image: product5,
+    images: [product5, product6],
     category: "bedsheets",
     material: "Cotton",
     size: "Queen",
@@ -88,6 +94,7 @@ export const products: Product[] = [
     price: 35,
     originalPrice: 45,
     image: product6,
+    images: [product6, product7, product8],
     category: "pillow-covers",
     material: "Linen",
     size: "Single",
@@ -100,6 +107,7 @@ export const products: Product[] = [
     name: "Taupe Sofa Cover",
     price: 165,
     image: product7,
+    images: [product7, product3],
     category: "sofa-covers",
     material: "Cotton",
     size: "Double",
@@ -111,6 +119,7 @@ export const products: Product[] = [
     name: "Striped Pillow Cover Set",
     price: 55,
     image: product8,
+    images: [product8, product2],
     category: "pillow-covers",
     material: "Cotton",
     size: "Single",
@@ -124,6 +133,7 @@ export const products: Product[] = [
     price: 159,
     originalPrice: 199,
     image: product1,
+    images: [product1, product4, product5],
     category: "bedsheets",
     material: "Cotton",
     size: "King",
@@ -135,6 +145,7 @@ export const products: Product[] = [
     name: "Velvet Pillow Cover",
     price: 42,
     image: product2,
+    images: [product2],
     category: "pillow-covers",
     material: "Satin",
     size: "Single",
@@ -146,6 +157,7 @@ export const products: Product[] = [
     name: "Linen Sofa Protector",
     price: 135,
     image: product3,
+    images: [product3, product7],
     category: "sofa-covers",
     material: "Linen",
     size: "Double",
@@ -158,6 +170,7 @@ export const products: Product[] = [
     name: "Satin Bedsheet Set",
     price: 175,
     image: product4,
+    images: [product4, product1, product5],
     category: "bedsheets",
     material: "Satin",
     size: "Queen",
