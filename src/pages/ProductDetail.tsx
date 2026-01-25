@@ -1,6 +1,6 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { ShoppingCart, Heart, Truck, Shield, RotateCcw, Minus, Plus, ChevronLeft, ChevronRight } from "lucide-react";
+import { ShoppingCart, Heart, Truck, Shield, RotateCcw, Minus, Plus, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const product = products.find((p) => p.id === Number(id));
   const { addToCart } = useCart();
   const { toast } = useToast();
@@ -64,6 +65,11 @@ const ProductDetail = () => {
       title: "Added to cart",
       description: `${quantity} x ${product.name} (${selectedSize}) added to your cart.`,
     });
+  };
+
+  const handleBuyNow = () => {
+    addToCart(product, quantity, selectedSize);
+    navigate('/checkout');
   };
 
   return (
@@ -226,14 +232,26 @@ const ProductDetail = () => {
 
               {/* Add to Cart */}
               <Button
-                variant="product"
+                variant="outline"
                 size="lg"
-                className="flex-1 h-12"
+                className="flex-1 h-12 border-2 border-stone-800 text-stone-800 hover:bg-stone-100"
                 disabled={!product.inStock}
                 onClick={handleAddToCart}
               >
                 <ShoppingCart className="w-5 h-5" />
-                {product.inStock ? "Add to Cart" : "Out of Stock"}
+                Add to Cart
+              </Button>
+
+              {/* Buy Now */}
+              <Button
+                variant="product"
+                size="lg"
+                className="flex-1 h-12"
+                disabled={!product.inStock}
+                onClick={handleBuyNow}
+              >
+                <Zap className="w-5 h-5" />
+                Buy Now
               </Button>
 
               {/* Wishlist */}
