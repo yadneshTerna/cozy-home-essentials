@@ -14,16 +14,6 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
-// Admin Pages
-import { AdminLayout } from "./pages/admin/AdminLayout";
-import { Dashboard } from "./pages/admin/Dashboard";
-import { AdminProducts } from "./pages/admin/Products";
-import { AdminOrders } from "./pages/admin/Orders";
-import { AdminUsers } from "./pages/admin/Users";
-import { AdminCategories } from "./pages/admin/Categories";
-import { AdminAddresses } from "./pages/admin/Addresses";
-import { AdminSettings } from "./pages/admin/Settings";
-
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -44,18 +34,6 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/profile" element={<Profile />} />
-                
-                {/* Admin Routes */}
-                <Route path="/admin" element={<AdminLayout />}>
-                  <Route index element={<Dashboard />} />
-                  <Route path="products" element={<AdminProducts />} />
-                  <Route path="orders" element={<AdminOrders />} />
-                  <Route path="users" element={<AdminUsers />} />
-                  <Route path="categories" element={<AdminCategories />} />
-                  <Route path="addresses" element={<AdminAddresses />} />
-                  <Route path="settings" element={<AdminSettings />} />
-                </Route>
-                
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
