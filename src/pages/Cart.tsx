@@ -202,9 +202,11 @@ const Cart = () => {
                 </div>
               </div>
 
-              <Button className="w-full bg-[#2C3E2D] hover:bg-[#1a2a1b] text-white py-3 rounded-lg mb-4">
-                Proceed to Checkout
-              </Button>
+              <Link to="/checkout">
+                <Button className="w-full bg-[#2C3E2D] hover:bg-[#1a2a1b] text-white py-3 rounded-lg mb-4">
+                  Proceed to Checkout
+                </Button>
+              </Link>
 
               {/* Promo Code */}
               <div className="mt-6">
